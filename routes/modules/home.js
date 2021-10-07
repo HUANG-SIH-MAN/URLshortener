@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const createShortURL = require('../../public/javascript/createShortURL')
+const createShortURL = require('../../utils/createShortURL')
 
 const URL = require('../../models/URL')
 
