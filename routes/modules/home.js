@@ -28,11 +28,18 @@ router.post('/result', (req, res) => {
     .catch(error => console.log(error))
 })
 
+router.get('/error', (req, res) => {
+    res.render('error')
+})
+
 router.get('/:shortURL', (req, res) => {
     URL.findOne({ shortURL: req.params.shortURL})
     .select('orignURL')
     .lean()
-    .then((URL)=> res.redirect(`${URL.orignURL}`))
+    .then((URL)=> {
+        if (URL)  return res.redirect(`${URL.orignURL}`)
+        return res.redirect('/error')
+    })
     .catch(error => console.log(error))
 })
 

@@ -1,8 +1,9 @@
 $('#copyURL').click(function() {
     let Range = document.createRange()
-    Range.selectNode($('#shortURL'))
-    const sel = window.getSelection()
+    Range.selectNode(document.getElementById('shortURL'))
+    sel = window.getSelection()
     sel.removeAllRanges()
-    sel.addRange(TextRange)
+    sel.addRange(Range)
     document.execCommand("copy");
 })
+
